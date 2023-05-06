@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  resume:
+    image: "resume"
+    ports:
+      - "3000"
+    healthcheck:
+      test: curl --fail http://localhost:3000 || exit 1
+      interval: 30s
+      timeout: 2s
+      retries: 10
+      start_period: 60s
+
+  playwright:
+    depends_on:
+      resume:
+        condition: service_healthy
+        restart: true
+    image: "playwright"
+    environment:
+      - TEST_URL=${TEST_URL}

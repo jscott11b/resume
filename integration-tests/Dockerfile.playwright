@@ -1,0 +1,4 @@
+FROM mcr.microsoft.com/playwright:v1.32.0-focal
+WORKDIR /app
+COPY . .
+ENTRYPOINT sleep infinity
