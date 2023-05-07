@@ -17,8 +17,17 @@ interface CommaWrapProps {
 }
 
 const CommaWrap = ({text, className}: CommaWrapProps) => {
-  const textLines = text.split(/(?<=, )/g);
+  let textLines = text.split(", ");
 
+  if(textLines.length > 1) {
+    textLines = textLines.map<string>((value, index) => { 
+      if( index < textLines.length - 1) {
+        return value + ", ";
+      }
+      return value;
+    });
+  }
+                                  
   return (
     <FlexWrap className={className}>
     {
