@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Resume
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to download a PDF Version
+1. Visit the website [here](https://jscott11b.github.io/resume/)
+2. Click the menu button in the top right corner
+3. Click download as PDF
 
 ## Available Scripts
 
@@ -29,18 +32,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `npm run integration-test`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Starts a docker stack for hosting the site and running integration tests against it. Docker is required for screenshot consistency across machines. When run locally, test result files will be automatically copied from the docker container to the local project directory.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `npm run show-test-report`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Shows integration test results from playwright. For more information on using playwright see [here](https://playwright.dev/)
