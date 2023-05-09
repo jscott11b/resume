@@ -37,11 +37,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "export": "node Export.tsx",
     "test": "react-scripts test",
     "integration-test": "./integration-tests/run-integration-tests.sh --build",
-    "show-test-results": "npx playwright show-report",
-    "eject": "react-scripts eject"
+    "show-test-report": "npx playwright show-report"
   },
   "eslintConfig": {
     "extends": [
