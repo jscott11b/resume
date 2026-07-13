@@ -36,7 +36,7 @@ jobs:
         run: npm test
       - name: Run Integration Tests
         run: chmod +x ./integration-tests/run-integration-tests.sh && ./integration-tests/run-integration-tests.sh
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-results
