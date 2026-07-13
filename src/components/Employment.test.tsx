@@ -53,7 +53,11 @@ describe("Education Component", () => {
       getByText(mockData[index].location);
 
       const formattedStartDate = `${MonthShortNames[mockData[index].startDate.getMonth()]} ${mockData[index].startDate.getFullYear()}`;
-      const formattedEndDate = `${MonthShortNames[mockData[index].endDate.getMonth()]} ${mockData[index].endDate.getFullYear()}`;
+      
+      const endDate = mockData[index].endDate;
+      const formattedEndDate = endDate
+        ? `${MonthShortNames[endDate.getMonth()]} ${endDate.getFullYear()}`
+        : "Present";
       getByText(`${formattedStartDate} - ${formattedEndDate}`);
 
       for(const detail of mockData[index].details) {

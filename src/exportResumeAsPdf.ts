@@ -17,7 +17,7 @@ export default async function exportResumeAsPdf(): Promise<void> {
 
   pdfBuilder.drawRectangle({x: 20, y: 20, width: pdfBuilder.pageWidth - 20 * 2, height: 30}, new Color(theme.headerBackgroundColor));
   pdfBuilder.addBlockText(resume.name, {...nameOptions, padding: {...nameOptions.padding, left: (pdfBuilder.pageWidth - 20 * 2) / 2 - namePosition.width / 2}});
-
+  
   pdfBuilder.addBlockText("Summary", headingOptions);
   pdfBuilder.addBlockText(resume.summary);
 
@@ -64,7 +64,7 @@ export default async function exportResumeAsPdf(): Promise<void> {
   for(const employment of resume.employments) {
     const jobTitlePosition = pdfBuilder.addBlockText(employment.title, {font: {size: 14, weight: "bold"}, padding: {top: 10, bottom: 2, left: 10}});
     pdfBuilder.addBlockText(`${employment.employer}, ${employment.location}`, {font: {weight: "bold", color: new Color(theme.locationColor)}, padding: {bottom: 10, left:  20}});
-    pdfBuilder.addPositionedText(`${formatDateMonthYear(employment.startDate)} - ${formatDateMonthYear(employment.endDate)}`, 480, jobTitlePosition.y, {padding: {top: 12}, font: {style: "italic", color: new Color(theme.dateColor)}});
+    pdfBuilder.addPositionedText(`${formatDateMonthYear(employment.startDate)} - ${employment.endDate ? formatDateMonthYear(employment.endDate) : "Present"}`, 480, jobTitlePosition.y, {padding: {top: 12}, font: {style: "italic", color: new Color(theme.dateColor)}});
     
     for(const detail of employment.details) {
       pdfBuilder.addBlockText(detail, {prefix: "\u2022", padding: {left: 30, bottom: 2}});

@@ -8,7 +8,7 @@ export interface EmploymentTemplate {
   location: string,
   title: string,
   startDate: Date,
-  endDate: Date,
+  endDate: Date | null,
   details: string[]
 }
 
@@ -24,8 +24,8 @@ export interface ResumeTemplate {
   name: string,
   homepage: string,
   source: string,
-  contact : ContactTemplate,
   summary: string,
+  contact : ContactTemplate,
   employments: EmploymentTemplate[],
   education: EducationTemplate[],
   technicalSkills: string[]
@@ -35,12 +35,26 @@ const resume: ResumeTemplate = {
   name: "Jordan Scott",
   homepage: "https://jscott11b.github.io/resume",
   source: "https://github.com/jscott11b/resume",
+  summary: "Software Engineer experienced in designing and building full-stack and mobile applications. Focused on reliability, quality, and delivering maintainable, user-focused solutions through automated, repeatable release pipelines.",
   contact: {
     email: "jordan.scott11b@gmail.com",
     linkedIn: "https://www.linkedin.com/in/jscott11b"
   },
-  summary: "Quality-driven back-end software engineer with 7 years expertise building and maintaining scalable, enterprise APIs, seeking to transition to full-stack development. Experienced in all aspects of the project lifecycle. Adaptable and quick to learn new technologies, programming languages, and tools to meet project requirements. Strong problem-solving skills with a proven track record of implementing innovative solutions.",
   employments: [
+    {
+      employer: "AIS Technologies Group",
+      location: "Windsor ON",
+      title: "Software Engineer",
+      startDate: new Date(2023, 8),
+      endDate: null,
+      details: [
+        "Redesigned a legacy application into a scalable, cross-platform web application, eliminating reliance on costly licensed libraries by adopting open-source solutions",
+        "Owned the full software development lifecycle, from design and implementation through testing and deployment, collaborating closely with end users to deliver features that enhance usability",
+        "Independently developed a cross-platform mobile application integrating computer vision and augmented reality to deliver interactive user experiences",
+        "Designed and implemented build and release pipelines, incorporating automated testing and streamlined release documentation",
+        "Collaborated with management to define project requirements, assess feasibility, and estimate effort and timelines"
+      ]
+    },
     {
       employer: "Rocket Mortgage",
       location: "Detroit MI",
@@ -72,7 +86,7 @@ const resume: ResumeTemplate = {
         "Provided emergency technical support to customers"
       ]
     }
-  ],
+  ].slice(0,2),
   education: [
     {
       name: "Bachelor of Applied Science, Honours Electrical Engineering",
@@ -91,8 +105,6 @@ const resume: ResumeTemplate = {
     "Snyk",
     "SonarQub",
     "Terraform",
-    "CloudFormation",
-    "Auth0",
     "IIS",
     "Docker EE",
     "MS SQL Server",
@@ -115,17 +127,14 @@ const resume: ResumeTemplate = {
     "XUnit",
     "Typescript",
     "Node",
-    "NPM",
     "Angular",
     "Jest",
-    "RAML",
-    "Swagger",
-    "REST",
     "JSX",
+    "React",
     "Redux",
-    "Redux Thunks",
-    "Redux-Saga",
-    "Styled-Components"
+    "Expo",
+    "React-Native",
+    "Electron"
   ]
 }
 

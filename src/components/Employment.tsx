@@ -31,7 +31,7 @@ const Employment = ({employments}: EmploymentProps) => {
                 <H3>{employment.title}</H3>
                 <HorizontalFill>
                   <SubheadingCommaWrap text={jobLocation} />
-                  <Accent>{`${formatDateMonthYear(employment.startDate)} - ${formatDateMonthYear(employment.endDate)}`}</Accent>
+                  <Accent>{`${formatDateMonthYear(employment.startDate)} - ${employment.endDate ? formatDateMonthYear(employment.endDate) : "Present"}`}</Accent>
                 </HorizontalFill>
                 <Details listStyle="outside">
                   {
